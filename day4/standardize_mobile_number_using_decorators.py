@@ -1,0 +1,17 @@
+# Exercise: https://www.hackerrank.com/challenges/standardize-mobile-number-using-decorators
+def wrapper(f):
+    def fun(l):
+        modified_numbers = [f"+91 {x[-10:-5]} {x[-5:]}" for x in l]
+        return f(modified_numbers)
+    return fun
+
+@wrapper
+def sort_phone(l):
+    print(*sorted(l), sep='\n')
+
+if __name__ == '__main__':
+    l = [input() for _ in range(int(input()))]
+    sort_phone(l)
+
+
+
